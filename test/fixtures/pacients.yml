@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  birthday: 2015-12-13
+  gender_id: 
+  medic_id: 
+
+two:
+  name: MyString
+  birthday: 2015-12-13
+  gender_id: 
+  medic_id: 

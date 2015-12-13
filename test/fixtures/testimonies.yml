@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  testimony: MyText
+  disorder_id: 
+  age_group_id: 
+  gender_id: 
+
+two:
+  title: MyString
+  testimony: MyText
+  disorder_id: 
+  age_group_id: 
+  gender_id: 
