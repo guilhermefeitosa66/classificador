@@ -28,17 +28,17 @@
         
               <div class="form-group">
                 <%= f.label :disorder_id %>
-          <%= f.text_field :disorder_id, class: 'form-control' %>
+          <%= f.collection_select :disorder_id, Disorder.all, :id, :name, { prompt: true }, { class: 'form-control' } %>
               </div>
         
               <div class="form-group">
                 <%= f.label :age_group_id %>
-          <%= f.text_field :age_group_id, class: 'form-control' %>
+          <%= f.collection_select :age_group_id, AgeGroup.all, :id, :name, { prompt: true}, { class: 'form-control' } %>
               </div>
         
               <div class="form-group">
                 <%= f.label :gender_id %>
-          <%= f.text_field :gender_id, class: 'form-control' %>
+          <%= f.collection_select :gender_id, Gender.all, :id, :name, { prompt: true }, { class: 'form-control' } %>
               </div>
         
               <div class="form-group">

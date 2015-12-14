@@ -17,3 +17,4 @@ group :development, :test do
 end
 
 gem 'rails-i18n'
+gem 'devise'
