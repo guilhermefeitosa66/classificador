@@ -1,16 +1,16 @@
 Rails.application.routes.draw do  
   resources :administrators
-  resources :videos
+  resources :age_groups
   resources :diagnosed_disorders
   resources :diagnoses
-  resources :presented_testimonies
-  resources :testimonies
-  resources :pacients
+  resources :disorder_groups
+  resources :disorders
+  resources :expertises
   resources :genders
   resources :medics
-  resources :expertises
-  resources :age_groups
-  resources :disorders
-  resources :disorder_groups
+  resources :pacients
+  resources :presented_testimonies
+  resources :testimonies
+  resources :videos
   root to: 'static#index'
 end
