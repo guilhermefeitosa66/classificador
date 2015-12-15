@@ -26,7 +26,9 @@
     
       <!-- links da navbar -->
       <div class="collapse navbar-collapse navbar-main-collapse">
+        <%= render 'layouts/navbar_default' if (!administrator_signed_in? && !medic_signed_in?) %>
         <%= render 'layouts/navbar_administrator' if administrator_signed_in? %>
+        <%= render 'layouts/navbar_medic' if medic_signed_in? %>
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>
@@ -82,15 +84,15 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        <p class="center">guilhermefeitosa@gmail.com</p>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <p class="center">
           <%= link_to new_administrator_session_path, title: 'Acesso restrito' do %>
             <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
           <% end %>
         </p>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <p class="center">guilhermefeitosa@gmail.com</p>
       </div>
       <% end %>
     </div>

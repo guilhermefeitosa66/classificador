@@ -93,15 +93,24 @@ ActiveRecord::Schema.define(version: 20151214123304) do
   end
 
   create_table "medics", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.string   "name"
-    t.string   "email"
-    t.string   "password"
     t.integer  "expertise_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
-  add_index "medics", ["expertise_id"], name: "index_medics_on_expertise_id"
+  add_index "medics", ["email"], name: "index_medics_on_email", unique: true
+  add_index "medics", ["reset_password_token"], name: "index_medics_on_reset_password_token", unique: true
 
   create_table "pacients", force: :cascade do |t|
     t.string   "name"
