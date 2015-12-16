@@ -41,7 +41,6 @@
                             <th>Name</th>
                             <th>Birthday</th>
                             <th>Gender</th>
-                            <th>Medic</th>
                             <th style="width: 20%;">Ações</th>
             </tr>
           </thead>
@@ -49,11 +48,21 @@
           <tbody>
             <% @pacients.each do |pacient| %>
               <tr>
-                                <td><%= pacient.name %></td>
-                                <td><%= pacient.birthday %></td>
-                                <td><%= pacient.gender %></td>
-                                <td><%= pacient.medic %></td>
-                                <td>                    
+                <td><%= pacient.name %></td>
+                <td><%= pacient.birthday %></td>
+                <td><%= pacient.gender.name unless pacient.gender.nil? %></td>
+                <td>
+                  <% if current_pacient_id == pacient.id %>
+                    <%= link_to select_pacient_path(pacient.id), class: 'btn btn-success', title: 'Selecionar paciente' do %>
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to select_pacient_path(pacient.id), class: 'btn btn-default', title: 'Selecionar paciente' do %>
+                    <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+                    <% end %>
+                  <% end %>
+
+
                   <%= link_to pacient, class: 'btn btn-default', title: 'Exibir' do %>
                   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                   <% end %>

@@ -48,15 +48,15 @@
       </p>
             <p>
         <strong>Disorder:</strong>
-        <%= @testimony.disorder %>
+        <%= @testimony.disorder.name unless @testimony.disorder.nil? %>
       </p>
             <p>
         <strong>Age group:</strong>
-        <%= @testimony.age_group %>
+        <%= @testimony.age_group.name unless @testimony.age_group.nil? %>
       </p>
             <p>
         <strong>Gender:</strong>
-        <%= @testimony.gender %>
+        <%= @testimony.gender.name unless @testimony.gender.nil? %>
       </p>
           </div>
   </div>

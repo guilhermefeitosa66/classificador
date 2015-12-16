@@ -38,18 +38,18 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <p>
+      <p>
         <strong>Title:</strong>
         <%= @video.title %>
       </p>
-            <p>
+      <p>
+        <strong>Link:</strong>
+      </p>
+        <%= raw @video.link %>
+      <p>
         <strong>Description:</strong>
         <%= @video.description %>
       </p>
-            <p>
-        <strong>Link:</strong>
-        <%= @video.link %>
-      </p>
-          </div>
+    </div>
   </div>
 </div>

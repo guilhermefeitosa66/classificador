@@ -50,7 +50,7 @@
               <tr>
                                 <td><%= disorder.name %></td>
                                 <td><%= disorder.description %></td>
-                                <td><%= disorder.disorder_group %></td>
+                                <td><%= disorder.disorder_group.name unless disorder.disorder_group.nil? %></td>
                                 <td>                    
                   <%= link_to disorder, class: 'btn btn-default', title: 'Exibir' do %>
                   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>

@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   resources :disorders
   resources :expertises
   resources :genders
+  
   resources :pacients
+  get '/pacients/select/pacient/:id', to: 'pacients#select_pacient', as: 'select_pacient'
+  delete '/pacients/deselect/pacient', to: 'pacients#deselect_pacient', as: 'deselect_pacient'
+
   resources :presented_testimonies
   resources :testimonies
   resources :videos

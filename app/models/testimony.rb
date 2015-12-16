@@ -4,4 +4,12 @@ class Testimony < ActiveRecord::Base
   belongs_to :gender
 
   has_many :presented_testimonies, dependent: :destroy
+
+  def short_testimony
+    if self.testimony.nil?
+      return ""
+    else
+      return "#{self.testimony.truncate(27)}..."
+    end
+  end
 end

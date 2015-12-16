@@ -7,11 +7,43 @@
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
+  <% if current_pacient %>
   <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_medic.name %><b class="caret"></b></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <%= current_pacient.name %>
+      <b class="caret"></b>
+    </a>
     <ul class="dropdown-menu">
-      <li><%= link_to 'Editar perfil', edit_medic_registration_path %></li>
-      <li><%= link_to 'Sair', destroy_medic_session_path, method: :delete %></li>
+      <li>
+        <%= link_to deselect_pacient_path, method: :delete do %>
+          <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+          Parar consulta
+        <% end %>
+      </li>
+    </ul>
+  </li>
+  <% end %>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <%= current_medic.name %>
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to edit_medic_registration_path do %>
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          Editar perfil
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_medic_session_path, method: :delete do %>
+          <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+          Sair
+        <% end %>
+      </li>
     </ul>
   </li>
 </ul>

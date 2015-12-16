@@ -23,17 +23,12 @@
         
               <div class="form-group">
                 <%= f.label :birthday %>
-          <%= f.date_select :birthday, class: 'form-control' %>
+                <%= f.date_select :birthday, class: 'form-control' %>
               </div>
         
               <div class="form-group">
                 <%= f.label :gender_id %>
-          <%= f.text_field :gender_id, class: 'form-control' %>
-              </div>
-        
-              <div class="form-group">
-                <%= f.label :medic_id %>
-          <%= f.text_field :medic_id, class: 'form-control' %>
+          <%= f.collection_select :gender_id, Gender.all, :id, :name, { prompt: true }, { class: 'form-control' } %>
               </div>
         
               <div class="form-group">

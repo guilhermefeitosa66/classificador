@@ -1,10 +1,20 @@
 class PacientsController < ApplicationController
-  before_action :set_pacient, only: [:show, :edit, :update, :destroy]
+  before_action :set_pacient, only: [:show, :edit, :update, :destroy, :select_pacient]
+
+  def select_pacient
+    session[:pacient] = @pacient.id
+    redirect_to pacients_path, notice: 'Pacient selected successfully'
+  end
+
+  def deselect_pacient
+    session[:pacient] = nil
+    redirect_to pacients_path, notice: 'Pacient deselected successfully'
+  end
 
   # GET /pacients
   # GET /pacients.json
   def index
-    @pacients = Pacient.all
+    @pacients = current_medic.pacients
   end
 
   # GET /pacients/1
@@ -25,6 +35,7 @@ class PacientsController < ApplicationController
   # POST /pacients.json
   def create
     @pacient = Pacient.new(pacient_params)
+    @pacient.medic_id = current_medic.id
 
     respond_to do |format|
       if @pacient.save
@@ -64,11 +75,15 @@ class PacientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pacient
-      @pacient = Pacient.find(params[:id])
+      @pacient = current_medic.pacients.where(id: params[:id]).first
+
+      if @pacient.nil?
+        redirect_to pacients_path, alert: 'Pacient not found'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pacient_params
-      params.require(:pacient).permit(:name, :birthday, :gender_id, :medic_id)
+      params.require(:pacient).permit(:name, :birthday, :gender_id)
     end
 end
