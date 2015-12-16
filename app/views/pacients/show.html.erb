@@ -38,22 +38,18 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <p>
+      <p>
         <strong>Name:</strong>
         <%= @pacient.name %>
       </p>
-            <p>
+      <p>
         <strong>Birthday:</strong>
         <%= @pacient.birthday %>
       </p>
-            <p>
+      <p>
         <strong>Gender:</strong>
-        <%= @pacient.gender %>
+        <%= @pacient.gender.name unless @pacient.gender.nil? %>
       </p>
-            <p>
-        <strong>Medic:</strong>
-        <%= @pacient.medic %>
-      </p>
-          </div>
+    </div>
   </div>
 </div>

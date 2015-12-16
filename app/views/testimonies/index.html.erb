@@ -51,10 +51,10 @@
             <% @testimonies.each do |testimony| %>
               <tr>
                                 <td><%= testimony.title %></td>
-                                <td><%= testimony.testimony %></td>
-                                <td><%= testimony.disorder %></td>
-                                <td><%= testimony.age_group %></td>
-                                <td><%= testimony.gender %></td>
+                                <td><%= testimony.short_testimony %></td>
+                                <td><%= testimony.disorder.name unless testimony.disorder.nil? %></td>
+                                <td><%= testimony.age_group.name unless testimony.age_group.nil? %></td>
+                                <td><%= testimony.gender.name unless testimony.gender.nil? %></td>
                                 <td>                    
                   <%= link_to testimony, class: 'btn btn-default', title: 'Exibir' do %>
                   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>

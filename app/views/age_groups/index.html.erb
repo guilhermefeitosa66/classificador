@@ -50,7 +50,7 @@
             <% @age_groups.each do |age_group| %>
               <tr>
                                 <td><%= age_group.name %></td>
-                                <td><%= age_group.description %></td>
+                                <td><%= shorten(age_group.description) %></td>
                                 <td><%= age_group.min %></td>
                                 <td><%= age_group.max %></td>
                                 <td>                    

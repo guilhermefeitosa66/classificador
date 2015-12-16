@@ -28,14 +28,14 @@
         
               <div class="form-group">
                 <%= f.label :disorder_group_id %>
-          <%= f.text_field :disorder_group_id, class: 'form-control' %>
+                <%= f.collection_select :disorder_group_id, DisorderGroup.all, :id, :name, { prompt: true }, { class: 'form-control' } %>
               </div>
         
               <div class="form-group">
-          <%= f.button type: 'submit', class: 'btn btn-primary' do %>
-            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
-            Salvar
-          <% end %>
+                <%= f.button type: 'submit', class: 'btn btn-primary' do %>
+                  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                  Salvar
+                <% end %>
         </div>
       <% end %>
     </div>

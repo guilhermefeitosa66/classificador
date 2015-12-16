@@ -48,7 +48,7 @@
       </p>
             <p>
         <strong>Disorder group:</strong>
-        <%= @disorder.disorder_group %>
+        <%= @disorder.disorder_group.name unless @disorder.disorder_group.nil? %>
       </p>
           </div>
   </div>
