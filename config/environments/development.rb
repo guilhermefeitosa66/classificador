@@ -48,7 +48,7 @@ Rails.application.configure do
     port: '587',
     user_name: 'classificadortranstornos@gmail.com',
     password: 'classificador123',
-    #authentication: 'plain',
+    # authentication: 'plain',
     authentication: 'login',
     enable_starttls_auto: true,
     charset: 'utf-8'

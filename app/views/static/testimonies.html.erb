@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <ul>
+      <% @disorder_groups.each do |disorder_group| %>
+      <li>
+        <%= link_to disorder_group.name, "#disorder_group_#{disorder_group.id}", :'data-toggle' => 'collapse', :'aria-expanded' => 'false', :'aria-controls' => "disorder_group_#{disorder_group.id}", :role => 'button' %>
+
+        <ul id="disorder_group_<%= disorder_group.id %>" class="collapse">
+          <% disorder_group.disorders.each do |disorder| %>
+          <li>
+            <%= link_to "#{disorder.name} (#{disorder.testimonies.count})", "#disorder_#{disorder.id}", :'data-toggle' => 'collapse', :'aria-expanded' => 'false', :'aria-controls' => "disorder_group_#{disorder_group.id}", :role => 'button' %>
+            <ul id="disorder_<%= disorder.id %>" class="collapse">
+              <% disorder.testimonies.each do |testimony| %>
+              <li><%= testimony.title %></li>
+              <% end %>
+            </ul>
+          </li>
+          <% end %>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'static#index'
+  get '/home/testimonies', to: 'static#testimonies', as: 'public_testimonies'
 
   resources :age_groups
   resources :diagnosed_disorders
