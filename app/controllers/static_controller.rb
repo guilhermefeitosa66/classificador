@@ -3,7 +3,11 @@ class StaticController < ApplicationController
   end
 
   def testimonies
-    @disorder_groups = DisorderGroup.all
+    @disorder_groups = DisorderGroup.includes(:disorders, :testimonies).all
+  end
+
+  def show_testimony
+    @testimony = Testimony.find(params[:id])
   end
 
   def videos

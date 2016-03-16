@@ -4,6 +4,8 @@ class CreateVideos < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :link
+      t.references :age_group, index: true, foreign_key: true
+      t.references :gender, index: true, foreign_key: true
 
       t.timestamps null: false
     end

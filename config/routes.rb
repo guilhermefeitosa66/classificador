@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :posts
   root to: 'static#index'
   get '/home/testimonies', to: 'static#testimonies', as: 'public_testimonies'
+  get '/home/show_testimony/:id', to: 'static#show_testimony', as: 'show_testimony'
   get '/home/videos', to: 'static#videos', as: 'public_videos'
 
   resources :age_groups
@@ -23,4 +25,6 @@ Rails.application.routes.draw do
   
   devise_for :administrators, controllers: { sessions: "administrators/sessions", registrations: 'administrators/registrations' }
   devise_for :medics, controllers: { sessions: "medics/sessions", registrations: 'medics/registrations' }
+  resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
+  devise_for :users
 end
