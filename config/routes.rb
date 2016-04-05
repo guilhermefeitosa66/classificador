@@ -25,6 +25,5 @@ Rails.application.routes.draw do
   
   devise_for :administrators, controllers: { sessions: "administrators/sessions", registrations: 'administrators/registrations' }
   devise_for :medics, controllers: { sessions: "medics/sessions", registrations: 'medics/registrations' }
-  resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
   devise_for :users
 end

@@ -2,6 +2,10 @@
 puts "criando administrador padrão..."
 Administrator.create!(name: "Administrator", email: "admin@email.com", password: "administrator", password_confirmation: "administrator")
 
+puts "criando generos..."
+Gender.create(name: "Masculino", description: "")
+Gender.create(name: "Feminino", description: "")
+
 puts "criando grupos de transtornos..."
 DisorderGroup.create(name: "Transtornos de Neurodesenvolvimento", description: "")
 DisorderGroup.create(name: "Espectro da Esquizofrenia e Outros Transtornos Psicóticos", description: "")

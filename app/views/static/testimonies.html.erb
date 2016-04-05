@@ -1,3 +1,52 @@
+<% if current_pacient %>
+<!-- NAVBAR -->
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- agrupar para mobile -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-submenu-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Filtros:", "#", class: 'navbar-brand' %>
+    </div>
+  
+    <!-- links da navbar -->
+    <div class="collapse navbar-collapse navbar-submenu-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <label>Transtornos:</label>
+              <%= select("filter", "disorder_id", Disorder.all.collect {|d| [ d.name, d.id ] }, {include_blank: 'Todos'}, {class: 'form-control'}) %>
+            </div>
+
+            <div class="form-group">
+              <label>Gênero:</label>
+              <%= select("filter", "gender_id", Gender.all.collect {|g| [ g.name, g.id ] }, {include_blank: 'Todos'}, {class: 'form-control'}) %>
+            </div>
+            
+            <div class="form-group">
+              <label>Faixa etária:</label>
+              <%= select("filter", "age_id", AgeGroup.all.collect {|a| [ a.name, a.id ] }, {include_blank: 'Todas'}, {class: 'form-control'}) %>
+            </div>
+
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+              Filtrar
+            </button>
+        </form>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+</nav>
+<!-- /NAVBAR -->
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

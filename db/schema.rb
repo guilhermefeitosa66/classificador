@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316192359) do
+ActiveRecord::Schema.define(version: 20160404231036) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -183,9 +183,11 @@ ActiveRecord::Schema.define(version: 20160316192359) do
     t.integer  "gender_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "medic_id"
   end
 
   add_index "videos", ["age_group_id"], name: "index_videos_on_age_group_id"
   add_index "videos", ["gender_id"], name: "index_videos_on_gender_id"
+  add_index "videos", ["medic_id"], name: "index_videos_on_medic_id"
 
 end
