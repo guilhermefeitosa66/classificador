@@ -70,17 +70,9 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <hr>
       </div>
-      <% if administrator_signed_in? %>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <p class="center">Guilherme Feitosa &copy; 2015</p>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <p class="center">guilhermefeitosa@gmail.com</p>
-      </div>
-      <% else %>
+      <% unless administrator_signed_in? %>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        <p class="center">Guilherme Feitosa & Pâmela Carvalho &copy; 2015</p>
+        <p class="center">Pâmela Carvalho &copy; 2015</p>
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -92,7 +84,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        <p class="center">guilhermefeitosa66@gmail.com; pamelacarvalho.si@gmail.com</p>
+        <p class="center">pamelacarvalho.si@gmail.com</p>
       </div>
       <% end %>
     </div>
